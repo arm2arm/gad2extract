@@ -41,6 +41,7 @@ MESSAGE( STATUS "PROJECT_SOURCE_DIR: " ${PROJECT_SOURCE_DIR} )
 # Find all the sources for the LIB
 FILE(GLOB LIBSOURCES lib/*.cpp)
 
+
 # Destination path for the lib
 SET(LIBRARY_OUTPUT_PATH lib)
 
