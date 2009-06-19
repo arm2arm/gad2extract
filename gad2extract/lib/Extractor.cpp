@@ -19,6 +19,28 @@ void CExtractor::GetIdToTrace()
 	std::ifstream inidfile(idfile.c_str());
 	if (!inidfile.bad())
 		{
+		  ////////////////////////
+		  string oneline;
+		  getline(inidfile,oneline);
+		  cout<<oneline<<endl;
+		  inidfile>>m_nhalo;
+		  cout<<"# number of haloes to be tracked = "<<m_nhalo<<endl;
+		  ////////////////////////
+		  m_ID.reserve(m_nhalo);
+		  ////////////////////////
+		  for(int currHalo=0;currHalo<m_nhalo;currHalo++)
+		    {
+		      int np, tID;
+		      inidfile>>np;
+		      cout<<"\t#reding H"<<currHalo<<" with np = "<<np<<endl;
+		      for(int ip=0;ip<np;ip++)
+			{
+			  inidfile>>tID;
+			  m_ID[currHalo].insert(tID);
+			  cout<<currHalo<<" "<<ip<<" "<<tID<<endl;
+			}
+		    }
+		  /////////////////////////
 		inidfile.close();
 		}
 	else 

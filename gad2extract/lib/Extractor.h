@@ -2,6 +2,7 @@
 #define MY_EXTRACTOR_
 #include <string>
 #include <map>
+#include <set>
 #include <vector>
 
 typedef struct tagCOM{
@@ -19,12 +20,14 @@ class CExtractor
 	private:
 		std::map<std::string, std::string> m_inifile; 
 		std::string m_path;
-		std::vector<std::map<int, int> > m_ID;
+		std::vector<std::set<int> > m_ID;
 		std::vector<typeCom> m_com;
+		int m_nhalo;
 		double m_Rad;
 		std::string idfile;
 		std::string m_file;
 		std::string m_dumpfile;
+
 	};
 
 #endif
