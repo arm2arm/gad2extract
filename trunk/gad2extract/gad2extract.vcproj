@@ -176,7 +176,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Extractor.cpp"
+				RelativePath=".\lib\Extractor.cpp"
 				>
 			</File>
 			<File
@@ -206,7 +206,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Extractor.h"
+				RelativePath=".\lib\Extractor.h"
 				>
 			</File>
 			<File
