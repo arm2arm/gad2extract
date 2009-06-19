@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gad2extract", "gad2extract\gad2extract.vcproj", "{8116AB47-47C9-4C6F-BFF6-CA3A106C0FCB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mst_graph", "..\mst_graph\mst_graph\mst_graph.vcproj", "{D5C12745-2739-4473-ACCC-CCB0BFB74951}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8116AB47-47C9-4C6F-BFF6-CA3A106C0FCB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8116AB47-47C9-4C6F-BFF6-CA3A106C0FCB}.Debug|Win32.Build.0 = Debug|Win32
+		{8116AB47-47C9-4C6F-BFF6-CA3A106C0FCB}.Release|Win32.ActiveCfg = Release|Win32
+		{8116AB47-47C9-4C6F-BFF6-CA3A106C0FCB}.Release|Win32.Build.0 = Release|Win32
+		{D5C12745-2739-4473-ACCC-CCB0BFB74951}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D5C12745-2739-4473-ACCC-CCB0BFB74951}.Debug|Win32.Build.0 = Debug|Win32
+		{D5C12745-2739-4473-ACCC-CCB0BFB74951}.Release|Win32.ActiveCfg = Release|Win32
+		{D5C12745-2739-4473-ACCC-CCB0BFB74951}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
