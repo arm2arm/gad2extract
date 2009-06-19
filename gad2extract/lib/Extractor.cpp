@@ -26,7 +26,7 @@ void CExtractor::GetIdToTrace()
 		  inidfile>>m_nhalo;
 		  cout<<"# number of haloes to be tracked = "<<m_nhalo<<endl;
 		  ////////////////////////
-		  m_ID.reserve(m_nhalo);
+		  m_ID.resize(m_nhalo);
 		  ////////////////////////
 		  for(int currHalo=0;currHalo<m_nhalo;currHalo++)
 		    {
