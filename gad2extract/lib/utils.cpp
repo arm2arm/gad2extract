@@ -178,3 +178,4 @@ bool GetParam(std::map<std::string, std::string> m_inifile, std::string bl, void
 	  }
 	return true;	
 }
+

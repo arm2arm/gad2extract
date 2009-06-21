@@ -100,6 +100,24 @@ struct tagCoord
     T z;
 };
 
+template <class T>
+T periodic(T xp, T xmax, T xmin)
+{
+
+  xp+=(xmax-xmin)/2.0f;
+  if(xp>xmax)
+    {
+      xp=xp-(xmax-xmin);
+    }
+
+  if(xp<xmin)
+    {
+      xp=xp+(xmax-xmin);
+    }
+
+  return xp;
+}
+
 //////////////////////////////
 //////////////////////
 float mydrand48(void);

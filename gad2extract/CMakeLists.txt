@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 2.3)
 project (GAD2EXTRACT)
 #########################################################################################
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/Modules")
-#set (CMAKE_BUILD_TYPE Debug)
+set (CMAKE_BUILD_TYPE Debug)
 ###################################
 #SET(Boost_USE_STATIC_LIBS ON)
 #SET(Boost_USE_MULTITHREAD ON)

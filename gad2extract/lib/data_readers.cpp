@@ -517,7 +517,7 @@ unsigned int CGadget::read_block(float *&pV, const char *name, int t)
   if(sizeall<1) return 0;
   GetBlk(&m_file, &blk);		
   my_fread(pV, sizeof(float)*myhead.npart[t], 1, &m_file);
-  // swap_Nbyte((char*)pV,myhead.npart[t],4);
+  swap_Nbyte((char*)pV,myhead.npart[t],4);
   return myhead.npart[t];
 
 }
@@ -532,7 +532,7 @@ unsigned int CGadget::read_block(int *&pV, const char *name, int t)
   GetBlk(&m_file, &blk);
   SeekToType(&m_file,t, sizeof(int));		
   my_fread(pV, sizeof(int)*myhead.npart[t], 1, &m_file);
-  // swap_Nbyte((char*)pV,myhead.npart[t],4);
+  swap_Nbyte((char*)pV,myhead.npart[t],4);
   return myhead.npart[t];
 
 }
@@ -551,6 +551,22 @@ unsigned int CGadget::read_blockv3(float *&pV, const char *name, int t)
   my_fread(pV, sizeof(float)*myhead.npart[t], 3, &m_file);
   swap_Nbyte((char*)pV,myhead.npart[t]*3,4);
   return myhead.npart[t];
+
+}
+/*ReadWholeOneBlock*/
+unsigned int CGadget::read_whole_block(char *&pV, const char *name)
+{
+ 
+  unsigned int sizeall=find_block(&m_file, name);
+#ifdef VERBOSE
+  cout<<name<<endl;
+#endif
+  if(sizeall<1) return 0;
+  pV=new char[sizeall];
+  GetBlk(&m_file, &blk);		
+  my_fread(pV, sizeall, 1, &m_file);
+  swap_Nbyte((char*)pV,sizeall/sizeof(float),4);
+  return sizeall/sizeof(float);
 
 }
 
