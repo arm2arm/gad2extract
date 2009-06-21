@@ -581,6 +581,7 @@ class CGadget : public  CReaders
 		unsigned int read_block(float *&pV, const char *name, int t);
 		unsigned int read_block(int *&pV, const char *name, int t);
 		unsigned int read_blockv3(float *&pV, const char *name, int t);
+		unsigned int read_whole_block(char *&pV, const char *name);
 		void WriteRhoFile(string rhofilename, int type=4);
 		void WriteOneBlock(ostream &file,string blname, char* pData, unsigned int datasize);
 		bool GetSPHParticles(int type, CRegion reg, bool flag_putin_COM);
