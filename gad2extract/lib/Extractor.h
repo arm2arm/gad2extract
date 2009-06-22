@@ -20,6 +20,12 @@ typedef struct tagidInReg{
   std::vector<int> type_idx[6];
   // mapping Type of particle and its position in the file;
 } id_maps;
+
+typedef struct tagIDXinFile
+{
+  std::vector<int> mergedIDX, IDXWithMass,IDXgas, IDXsfr, IDXage, IDXz;
+} TIDXinFile;
+
 using std::cout;
 using std::endl;
 
@@ -41,14 +47,16 @@ class CExtractor
 			std::cout<<"\n#---------------\n"<<std::endl;			
 		      }
 		  }
-		bool isInReg(float *pos, int hcur=0, int type=4)
+		bool isInReg(float x, float y,float  z, int hcur=0, int type=4)
 		  {
-		    double x=pos[0];
-		    double y=pos[1];
-		    double z=pos[2];
+		    //		    double x=pos[0];
+		    //		    double y=pos[1];
+		    //		    double z=pos[2];
+		
 		    double xl=m_com[hcur].pos[0]-m_Rad;
 		    double yl=m_com[hcur].pos[1]-m_Rad;
 		    double zl=m_com[hcur].pos[2]-m_Rad;
+
 		    double xr=m_com[hcur].pos[0]+m_Rad;
 		    double yr=m_com[hcur].pos[1]+m_Rad;
 		    double zr=m_com[hcur].pos[2]+m_Rad;
@@ -57,14 +65,17 @@ class CExtractor
 		       yl<y && y<yr &&
 		       zl<z && z<zr 
 			)
-		      return true;
+		      {
+		
+			return true;
+		      }
 		    return false;
 
 		  }
 	private:
 		std::map<std::string, std::string> m_inifile; 
 		std::string m_path;
-		std::vector<std::vector<int> > m_ID;
+
 		std::vector<typeCom> m_com;
 		int m_nhalo;
 		double m_Rad;
@@ -72,8 +83,10 @@ class CExtractor
 		std::string idfile;
 		std::string m_file;
 		std::string m_dumpfile;
+		std::vector<std::vector<int> > m_ID;//IDs to be traced for COM
 		std::vector<id_maps> id_loc; // will hold particle location per halo
 		std::vector<std::string> which_blocks;//which blocks are present??
+		std::vector<TIDXinFile> floc;//halos Ids location per HALO;
 	};
 
 #endif
