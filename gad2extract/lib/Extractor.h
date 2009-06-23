@@ -13,7 +13,8 @@ double  pos[3];
  friend std::ostream& operator<<(std::ostream& os, const tagCOM  e)
     {
      
-      // os<<e.pos[0];//<<" "<<e.pos[1]<<" "<<e.pos[2]<<std::endl;
+       os<<e.pos[0]<<" "<<e.pos[1]<<" "<<e.pos[2]<<std::endl;
+	return os;
     }
 } typeCom;
 typedef struct tagidInReg{

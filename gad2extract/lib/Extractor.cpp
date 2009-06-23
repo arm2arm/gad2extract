@@ -7,7 +7,7 @@
 #include <fstream>
 #include <iostream>
 
-typedef unsigned char UCHAR;
+typedef int UCHAR;
 
 //////////////////////////////
 class CGetData{
@@ -17,7 +17,8 @@ public:
   CGetData(string file, int type=4):m_infile(file),
 				    m_type(type),
 				    pID(NULL),   
-				    pPOS(NULL), pTYPE(NULL)
+				    pPOS(NULL), pTYPE(NULL), 
+				    pMASS(NULL), pVEL(NULL)
   {        
     if(! ReadData()){
       cout<<"Fail to read data...exiting"<<endl;EXIT_FAIL;}
@@ -219,8 +220,10 @@ public:
 CExtractor::CExtractor(std::string path, std::map<std::string, std::string> ini):
 m_inifile(ini), m_path(path)
 	{
+
 	ParseIniFile();
 	GetIdToTrace();
+
 	/////////////////////////////////////
 	UCHAR myType;
 	CGetData *data= new CGetData(m_file);
@@ -230,7 +233,7 @@ m_inifile(ini), m_path(path)
 	cout<<"#BoxSize/2="<<m_Box2<<endl;
 	m_com.resize(m_nhalo);
 	id_loc.resize(m_nhalo);
-
+	
 	for(int hcur=0;hcur<m_nhalo;hcur++)
 	  {
 	    cout<<"# Anal:"<<hcur<<endl;
@@ -390,7 +393,7 @@ m_inifile(ini), m_path(path)
 		       which_blocks[ib]=="SFR "
 		       )
 		      {
-			float *pBUF=new float[data->m_gin->myhead.npart[0]];
+			float *pBUF=NULL;//new float[data->m_gin->myhead.npart[0]];
 			data->m_gin->read_whole_block((char*&)pBUF, 
 			   which_blocks[ib].c_str());			
 			for(int ip=0;ip<floc[hcur].IDXgas.size();ip++)
@@ -403,7 +406,7 @@ m_inifile(ini), m_path(path)
 		      }
 		    if(which_blocks[ib]=="AGE ")
 		      {
-			float *pBUF=new float[data->m_gin->myhead.npart[4]];
+			float *pBUF=NULL;//=new float[data->m_gin->myhead.npart[4]];
 			data->m_gin->read_whole_block((char*&)pBUF, 
 			   which_blocks[ib].c_str());			
 			for(int ip=0;ip<floc[hcur].IDXage.size();ip++)
@@ -416,7 +419,7 @@ m_inifile(ini), m_path(path)
 		      }
 		    if(which_blocks[ib]=="Z   ")
 		      {
-			float *pBUF=new float[data->m_gin->myhead.npart[0]+data->m_gin->myhead.npart[4]];
+			float *pBUF=NULL;//new float[data->m_gin->myhead.npart[0]+data->m_gin->myhead.npart[4]];
 			data->m_gin->read_whole_block((char*&)pBUF, 
 			   which_blocks[ib].c_str());			
 			for(int ip=0;ip<floc[hcur].IDXz.size();ip++)
