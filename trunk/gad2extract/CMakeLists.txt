@@ -11,7 +11,7 @@ set (CMAKE_BUILD_TYPE Debug)
 ###################################
 #SET(Boost_USE_STATIC_LIBS ON)
 #SET(Boost_USE_MULTITHREAD ON)
-SET( Boost_ADDITIONAL_VERSIONS  "1.39" "1.38")
+SET( Boost_ADDITIONAL_VERSIONS  "1.43.0" "1.38")
 
 find_package ( Boost  COMPONENTS program_options )
 #thread )
