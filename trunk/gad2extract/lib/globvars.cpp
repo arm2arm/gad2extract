@@ -11,8 +11,9 @@ double xStep;
 int fm;
 int NCOEF;
 double dTime=0.005;
-
+#include <cstring>
 #include <string>
+#include <cstdio>
 using std::string;
 void GenName(string &fname,const unsigned short isnap, string ext="_")
 {
@@ -25,7 +26,8 @@ void GenName(string &fname,const unsigned short isnap, string ext="_")
   sprintf(buf, "%s../OTHER/%s%s", OutputDir, ext.c_str(),snapname);
   fname.assign(buf);
 }
-
+#include <stdio.h>
+#include <string.h>
 void GetFileName(string &fname,const unsigned short isnap)
 {
   char buf[16000], snapname[512];

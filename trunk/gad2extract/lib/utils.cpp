@@ -2,7 +2,8 @@
 //2004-06-18
 
 #include "utils.h"
-
+#include <stdio.h>
+#include <string.h>
 
 //int __gxx_personality_v0;
 
